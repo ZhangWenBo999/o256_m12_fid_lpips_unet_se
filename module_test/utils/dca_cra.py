@@ -128,9 +128,9 @@ class CCSABlock(nn.Module):
             #                                         eps=1e-6)
             #                                         for in_features in features])
 
-            self.c_attention = nn.ModuleList([ChannelSpatialSELayer(num_channels=feature) for feature, head in zip(features, channel_head)])
+            # self.c_attention = nn.ModuleList([ChannelSpatialSELayer(num_channels=feature) for feature, head in zip(features, channel_head)])
             # self.c_attention = nn.ModuleList([Star_Block(dim=feature) for feature, head in zip(features, channel_head)])
-            # self.c_attention = nn.ModuleList([SEBlock(in_channels=feature) for feature, head in zip(features, channel_head)])
+            self.c_attention = nn.ModuleList([SEBlock(in_channels=feature) for feature, head in zip(features, channel_head)])
             # self.c_attention = nn.ModuleList([MAB(n_feats=feature) for feature, head in zip(features, channel_head)])
             # self.c_attention = nn.ModuleList([MultiDilatelocalAttention(dim=feature) for feature, head in zip(features, channel_head)])
             # self.c_attention = nn.ModuleList([SEBlock_conv(in_channels=feature, reduction=16) for feature, head in zip(features, channel_head)])
